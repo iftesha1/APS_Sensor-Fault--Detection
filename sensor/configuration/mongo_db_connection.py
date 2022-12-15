@@ -11,7 +11,7 @@ class MongoDBClient:
 
             if MongoDBClient.client is None:
                 mongo_db_url=os.getenv('MONGO_DB_URL',None)
-                print(mongo_db_url)
+                print("working db")
                 MongoDBClient.client = pymongo.MongoClient(mongo_db_url,  tlsCAFile=ca) 
                 
             self.client = MongoDBClient.client

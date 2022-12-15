@@ -1,2 +1,2 @@
-DATABASE_NAME="ineuron"
-COLLECTION_NAME = "car"
+DATABASE_NAME="Skania_Company_DB"
+COLLECTION_NAME = "APS_Sensor"
