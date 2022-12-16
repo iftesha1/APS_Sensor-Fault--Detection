@@ -2,7 +2,7 @@ from sensor.entity.config_entity import TrainingPipelineConfig,DataIngestionConf
 from sensor.entity.artifact_entity import DataIngestionArtifact
 from sensor.exception import SensorException
 from sensor.logger import logging
-from sensor.component.data_ingestion import DataIngestion
+from sensor.components.data_ingestion import DataIngestion
 import sys,os
 
 class TrainPipeline:
