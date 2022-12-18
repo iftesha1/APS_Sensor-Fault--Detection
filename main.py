@@ -14,8 +14,13 @@ from sensor.pipeline import training_pipeline
 
 if __name__=='__main__':
 
-    training_pipeline=TrainPipeline()
-    training_pipeline.run_pipeline()
+    try:
+
+        training_pipeline=TrainPipeline()
+        training_pipeline.run_pipeline()
+    except Exception as e:
+        print(e)
+        logging.exception(e)
     
     # 3.train_pipeline_config=TrainingPipelineConfig()
     # data_igestion_config=DataIngestionConfig(training_pipeline_config=train_pipeline_config)

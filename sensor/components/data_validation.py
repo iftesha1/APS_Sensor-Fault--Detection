@@ -4,7 +4,9 @@ from sensor.entity.config_entity import DataValidationConfig
 from sensor.exception import SensorException
 from sensor.logger import logging
 import pandas as pd
+from scipy.stats import ks_2samp
 import os,sys
+from sensor.utils.main_utils import read_yaml_file,write_yaml_file
 
 class DataValidation:
 
