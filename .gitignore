@@ -8,7 +8,7 @@ __pycache__/
 
 artifact/
 logs/
-
+saved_models/*
 
 # Distribution / packaging
 .Python
