@@ -1,4 +1,4 @@
-# Sensor-Fault-Detection
+# APS_Sensor-Fault-Detection
 
 ### Problem Statement
 The Air Pressure System (APS) is a critical component of a heavy-duty vehicle that uses compressed air to force a piston to provide pressure to the brake pads, slowing the vehicle down. The benefits of using an APS instead of a hydraulic system are the easy availability and long-term sustainability of natural air.
@@ -42,7 +42,7 @@ Before we run the project, make sure that you are having MongoDB in your local s
 
 ### Step 1: Clone the repository
 ```bash
-git clone https://github.com/sethusaim/Sensor-Fault-Detection.git
+https://github.com/iftesha1/APS_Sensor-Fault--Detection.git
 ```
 
 ### Step 2- Create a conda environment after opening the repository
@@ -68,7 +68,7 @@ export AWS_SECRET_ACCESS_KEY=<AWS_SECRET_ACCESS_KEY>
 
 export AWS_DEFAULT_REGION=<AWS_DEFAULT_REGION>
 
-export MONGODB_URL="mongodb+srv://<username>:<password>@ineuron-ai-projects.7eh1w4s.mongodb.net/?retryWrites=true&w=majority"
+export MONGODB_URL=<MONGO_DB_URL>
 
 ```
 
@@ -109,17 +109,7 @@ MONGO DB URL:
 ```
 mongodb+srv://avnish:XglZZ9OkjjUw74pZ@ineuron-ai-projects.7eh1w4s.mongodb.net/admin?authSource=admin&replicaSet=atlas-okvkrd-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true
 ```
-windows user
 
-```
-MONGO_DB_URL=mongodb+srv://avnish:XglZZ9OkjjUw74pZ@ineuron-ai-projects.7eh1w4s.mongodb.net/admin?authSource=admin&replicaSet=atlas-okvkrd-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true
-```
-
-Linux user
-
-```
-export MONGO_DB_URL=mongodb+srv://avnish:XglZZ9OkjjUw74pZ@ineuron-ai-projects.7eh1w4s.mongodb.net/admin?authSource=admin&replicaSet=atlas-okvkrd-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true
-```
 
 then run 
 ```
