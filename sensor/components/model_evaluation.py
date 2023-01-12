@@ -53,6 +53,10 @@ class ModelEvaluation:
                     trained_model_path=train_model_file_path, 
                     train_model_metric_artifact=self.model_trainer_artifact.test_metric_artifact, 
                     best_model_metric_artifact=None)
+                
+                model_eval_report = model_evaluation_artifact.__dict__
+                #save the report
+                write_yaml_file(self.model_eval_config.report_file_path, model_eval_report)
                 logging.info(f"Model evaluation artifact: {model_evaluation_artifact}")
                 return model_evaluation_artifact
 

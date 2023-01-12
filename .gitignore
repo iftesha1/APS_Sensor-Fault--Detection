@@ -9,6 +9,8 @@ __pycache__/
 artifact/
 logs/
 saved_models/*
+flowcharts/
+practise.py
 
 # Distribution / packaging
 .Python

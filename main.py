@@ -14,15 +14,9 @@ from fastapi.responses import Response
 from sensor.ml.model.estimator import ModelResolver,TargetValueMapping
 from sensor.utils.main_utils import load_object
 from fastapi.middleware.cors import CORSMiddleware
-
-
-env_file_path=os.path.join(os.getcwd(),"env.yaml")
-
-def set_env_variable(env_file_path):
-
-    if os.getenv('MONGO_DB_URL',None) is None:
-        env_config = read_yaml_file(env_file_path)
-        os.environ['MONGO_DB_URL']=env_config['MONGO_DB_URL']
+from fastapi import File, UploadFile
+import pandas as pd
+import numpy as np
 
 
 app = FastAPI()
@@ -54,12 +48,13 @@ async def train_route():
         return Response(f"Error Occurred! {e}")
 
 @app.get("/predict")
-async def predict_route():
+async def predict_route(file: UploadFile = File(...)):
     try:
-        #get data from user csv file
-        #conver csv file to dataframe
 
-        df=None
+        df = pd.read_csv(file.file)
+        df = df.replace(['na'], [np.NaN])
+        file.file.close()
+    
         model_resolver = ModelResolver(model_dir=SAVED_MODEL_DIR)
         if not model_resolver.is_model_exists():
             return Response("Model is not available")
@@ -69,15 +64,16 @@ async def predict_route():
         y_pred = model.predict(df)
         df['predicted_column'] = y_pred
         df['predicted_column'].replace(TargetValueMapping().reverse_mapping(),inplace=True)
+        df.to_csv('file_name.csv', encoding='utf-8')
+
+        return "Predicted file saved in downloads folder"
         
-        #decide how to return file to user.
         
     except Exception as e:
         raise Response(f"Error Occured! {e}")
 
 def main():
     try:
-        set_env_variable(env_file_path)
         training_pipeline = TrainPipeline()
         training_pipeline.run_pipeline()
     except Exception as e:
@@ -87,38 +83,6 @@ def main():
 
 if __name__=="__main__":
     #main()
-    # set_env_variable(env_file_path)
     app_run(app, host=APP_HOST, port=APP_PORT)
 
 
-# def test_exception():
-#     try:
-#         logging.info("the test for logging by dividing")
-#         x=1/0
-#     except Exception as e:
-#         raise SensorException(e,sys)
-
-# if __name__=='__main__':
-
-#     try:
-
-#         training_pipeline=TrainPipeline()
-#         training_pipeline.run_pipeline()
-#     except Exception as e:
-#         print(e)
-#         logging.exception(e)
-    
-    # 3.train_pipeline_config=TrainingPipelineConfig()
-    # data_igestion_config=DataIngestionConfig(training_pipeline_config=train_pipeline_config)
-    # print(data_igestion_config.__dict__)
-
-
-
-    # try:
-    #     test_exception()
-    # except Exception as e:
-    #     print(e)
-
-
-    # mongo_client=MongoDBClient()
-    # print("collection names:",mongo_client.database.list_collection_names())
