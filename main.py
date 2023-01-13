@@ -67,8 +67,7 @@ async def predict_route(file: UploadFile = File(...)):
         df.to_csv('file_name.csv', encoding='utf-8')
 
         return "Predicted file saved in downloads folder"
-        
-        
+             
     except Exception as e:
         raise Response(f"Error Occured! {e}")
 
