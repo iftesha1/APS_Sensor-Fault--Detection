@@ -12,10 +12,9 @@ In this project, the system in focus is the Air Pressure system (APS) which gene
 The problem is to reduce the cost due to unnecessary repairs. So it is required to minimize the false predictions.
 ## Tech Stack Used
 1. Python 
-2. FastAPI 
-3. Machine learning algorithms
-4. Docker
-5. MongoDB
+2. Machine learning algorithms
+3. Docker
+4. MongoDB
 
 ## Infrastructure Required.
 
@@ -23,7 +22,6 @@ The problem is to reduce the cost due to unnecessary repairs. So it is required 
 2. AWS EC2
 3. AWS ECR
 4. Git Actions
-5. Terraform
 
 ## How to run?
 Before we run the project, make sure that you are having MongoDB in your local system, with Compass since we are using MongoDB for data storage. You also need AWS account to access the service like S3, ECR and EC2 instances.
@@ -37,8 +35,7 @@ Before we run the project, make sure that you are having MongoDB in your local s
 
 
 ## Deployment Archietecture
-![image](https://user-images.githubusercontent.com/57321948/193536973-4530fe7d-5509-4609-bfd2-cd702fc82423.png)
-
+![1](https://user-images.githubusercontent.com/89398792/212585861-b78238b6-db90-4ae8-a251-7bcd0868c524.png)
 
 ### Step 1: Clone the repository
 ```bash
@@ -74,7 +71,7 @@ export MONGODB_URL=<MONGO_DB_URL>
 
 ### Step 5 - Run the application server
 ```bash
-python app.py
+python main.py
 ```
 
 ### Step 6. Train application
@@ -87,31 +84,4 @@ http://localhost:8080/train
 ```bash
 http://localhost:8080/predict
 
-```
-
-## Run locally
-
-1. Check if the Dockerfile is available in the project directory
-
-2. Build the Docker image
-```
-docker build --build-arg AWS_ACCESS_KEY_ID=<AWS_ACCESS_KEY_ID> --build-arg AWS_SECRET_ACCESS_KEY=<AWS_SECRET_ACCESS_KEY> --build-arg AWS_DEFAULT_REGION=<AWS_DEFAULT_REGION> --build-arg MONGODB_URL=<MONGODB_URL> . 
-
-```
-
-3. Run the Docker image
-```
-docker run -d -p 8080:8080 <IMAGE_NAME>
-```
-
-To run the project  first execute the below commmand.
-MONGO DB URL: 
-```
-mongodb+srv://avnish:XglZZ9OkjjUw74pZ@ineuron-ai-projects.7eh1w4s.mongodb.net/admin?authSource=admin&replicaSet=atlas-okvkrd-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true
-```
-
-
-then run 
-```
-python main.py
 ```
