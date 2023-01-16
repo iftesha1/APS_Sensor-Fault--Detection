@@ -37,8 +37,7 @@ Before we run the project, make sure that you are having MongoDB in your local s
 
 
 ## Deployment Archietecture
-![image](https://user-images.githubusercontent.com/57321948/193536973-4530fe7d-5509-4609-bfd2-cd702fc82423.png)
-
+![1](https://user-images.githubusercontent.com/89398792/212585861-b78238b6-db90-4ae8-a251-7bcd0868c524.png)
 
 ### Step 1: Clone the repository
 ```bash
@@ -74,7 +73,7 @@ export MONGODB_URL=<MONGO_DB_URL>
 
 ### Step 5 - Run the application server
 ```bash
-python app.py
+python main.py
 ```
 
 ### Step 6. Train application
@@ -104,14 +103,7 @@ docker build --build-arg AWS_ACCESS_KEY_ID=<AWS_ACCESS_KEY_ID> --build-arg AWS_S
 docker run -d -p 8080:8080 <IMAGE_NAME>
 ```
 
-To run the project  first execute the below commmand.
-MONGO DB URL: 
-```
-mongodb+srv://avnish:XglZZ9OkjjUw74pZ@ineuron-ai-projects.7eh1w4s.mongodb.net/admin?authSource=admin&replicaSet=atlas-okvkrd-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true
-```
-
-
-then run 
+4.then run 
 ```
 python main.py
 ```
